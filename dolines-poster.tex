@@ -29,8 +29,6 @@
 \usepackage{times} % Use the times font
 %\usepackage{palatino} % Uncomment to use the Palatino font
 
-\usepackage{subfigure}
-\usepackage{subfig}
 \usepackage{float}
 \usepackage{graphicx} % Required for including images
 \graphicspath{{figures/}} % Location of the graphics files
@@ -75,7 +73,7 @@
 \begin{abstract}
 
 Dolines are a frequent karst feature. Their shape, genesis and dynamics are conceptually described by various models. However, to the author’s knowledge there was no data about exact shape and size of a larger set of karst dolines that could be used for statistical analysis.
-We developed and used a numerical method to analyze $60 km^2$ of $1 m$ grid resolution lidar data of digital relief model of Menišija, an levelled karst surface, former polje near Postojna, Slovenia. We identified $8.700$ dolines (about $145$ dolines$/ m^2$). We then used numerical tools to calculate the average shape of the identified dolines and proposed a function to describe this shape.
+We developed and used a numerical method to analyze $60 km^2$ of $1 m$ grid resolution lidar data of digital relief model of Menišija, a levelled karst surface, former polje near Postojna, Slovenia. We identified $8.700$ dolines (about $145$ dolines$/ m^2$). We then used numerical tools to calculate the average shape of the identified dolines and proposed a function to describe this shape.
 
 Due to the geological history of Menišija and similarity of dolines in the area we propose that they were shaped by the same geomorphological processes, that ultimately lead to a common geomorphologically stable form of doline which is already reached in this area. 
 
@@ -89,23 +87,21 @@ Using this hypothesis we propose two possible dynamical models for dolines that 
 
 \color{SaddleBrown} % SaddleBrown color for the introduction
 
+\section*{About dinaric karst dolines}
+
 \begin{wrapfigure}{r}{0.2\textwidth}
 \begin{center}
 	\includegraphics[width=0.2\textwidth]{menisija-relief.png}
-%	\captionof{figure}{\color{Green} Figure caption}
+	\captionof{figure}{\color{Green} Figure caption}
+	\label{fig:menisija}
 \end{center}
 \end{wrapfigure}
 
-\section*{About dinaric karst dolines}
+Dolines of Dinaric karst are closed, bowl shaped depression with diameter ranging from about 10 to 100 meters. While each doline has its specific history, we can notice similarities in size and shape of dolines found in the same region. This leads us to believe, that no matter the history, they are ultimateley shaped by the same process. This conclusion gives motivation for the presented study.
 
-\begin{itemize}
-	\item Kaj in kje so vrtace
-	\item Kaj se ve o vrtacah
-	\item Od kje podatki
-	\item Motivacija
-\end{itemize}
+It is believed that predominant factor of genesis and growth of dolines is chemical dissolution of limestone. The dissolved limestone is washed into the aquifer trough fractures in the bedrock, while the surface is lowered and fractures widened. Lowering causes further concetration of surface water flow that further dissolves limestone. A feedback loop is established that drives the growth of the doline. However the growth is not unbound, as all dolines eventualy reach a stable, adult, form that we most commonly observe in nature. We assume this is caused by creation of efficient drainage system in the doline, that minimizes the dissolution of limestone, locking the dissolution of doline surface in step with adjecent flat surface.
 
-Aliquam non lacus dolor, \textit{a aliquam quam} \cite{Smith:2012qr}. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla in nibh mauris. Donec vel ligula nisi, a lacinia arcu. Sed mi dui, malesuada vel consectetur et, egestas porta nisi. Sed eleifend pharetra dolor, et dapibus est vulputate eu. \textbf{Integer faucibus elementum felis vitae fringilla.} In hac habitasse platea dictumst. Duis tristique rutrum nisl, nec vulputate elit porta ut. Donec sodales sollicitudin turpis sed convallis. Etiam mauris ligula, blandit adipiscing condimentum eu, dapibus pellentesque risus.
+To study a statistically relavant set of dolines we used a high resolution lidar digital relied model provided by (to-do: ime instituta + CITAT).
 
 %----------------------------------------------------------------------------------------
 %	OBJECTIVES
@@ -115,9 +111,8 @@ Aliquam non lacus dolor, \textit{a aliquam quam} \cite{Smith:2012qr}. Cum sociis
 
 \section*{Computer vision method}
 
-\begin{itemize}
-	\item Kako dela metoda
-\end{itemize}
+To isolate dolines from the digital relief model we calculated concavity of each point in the relief by assigning the point a value calculated by subtracting the points height from the average height of points on a concentric ring around it. By varying the rings inner and outer radious we highlighted concave shapes of various sizes.
+We then segmented the area into concave zones and chose the most fitting candidates for dolines.
 
 \begin{minipage}[b]{0.5\textwidth}
 	\includegraphics[width=0.5\textwidth]{concavity-samples.pdf}
@@ -131,60 +126,44 @@ Aliquam non lacus dolor, \textit{a aliquam quam} \cite{Smith:2012qr}. Cum sociis
 
 \section*{Results}
 
-\begin{itemize}
-	\item Kaj in kje so vrtace
-	\item Od kje podatki
-\end{itemize}
+We then calculated the effective radiouses of found dolines, by counting the pixels of each doline and calculating the radious of a circle with equal surface (see Equation \ref{eq:reff}).
+
+\begin{equation}
+	\sum pixels = surface = \pi \cdot r^2
+	\label{eq:reff}
+\end{equation}
+
+Overlay of the identified dolines and histogram of effective radiouses can be seen on Figure \ref{fig:vrtaceinpolmeri}.
 
 \begin{minipage}[b]{0.5\textwidth}
 	\includegraphics[width=0.22\textwidth]{menisija-vrtace}
 	\includegraphics[width=0.8\textwidth]{menisija-polmeri-hist}
 	\captionof{figure}{Some figure}
+	\label{fig:vrtaceinpolmeri}
 \end{minipage}
 
-Fusce magna risus, molestie ut porttitor in, consectetur sed mi. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Pellentesque consectetur blandit pellentesque. Sed odio justo, viverra nec porttitor vel, lacinia a nunc. Suspendisse pulvinar euismod arcu, sit amet accumsan enim fermentum quis. In id mauris ut dui feugiat egestas. Vestibulum ac turpis lacinia nisl commodo sagittis eget sit amet sapien.
+The size of identified dolines seams to be normally distributed with a maximum at $22m$.
 
 %------------------------------------------------
 
 \subsection*{Average doline}
 
-\begin{itemize}
-	\item Kako sem povprecil vrtace
-	\item S kaksno funkcijo aproksimiramo vrtaco
-\end{itemize}
+We then proceded by averaging all the identified dolines, to remove historical and directional bias. The result can be seen in Figure \ref{fig:vrtaca}.
 
 \begin{wrapfigure}{r}{0.2\textwidth}
 \begin{center}
 	\includegraphics[width=0.2\textwidth]{menisija-vrtaca.png}
 	\captionof{figure}{\color{Green} Figure caption}
+	\label{fig:vrtaca}
 \end{center}
 \end{wrapfigure}
 
-Nulla vel nisl sed mauris auctor mollis non sed. 
+To approximate the shape of the average doline we proposed an upside down Gaussian function (\ref{eq:Gaussian}).
 
 \begin{equation}
-E = mc^{2}
-\label{eqn:Einstein}
+	f(x,y) = - A \cdot e^{\frac{x^2 + y^2}{\sigma^2}} + C
+	\label{eq:Gaussian}
 \end{equation}
-
-Curabitur mi sem, pulvinar quis aliquam rutrum. (1) edf (2)
-, $\Omega=[-1,1]^3$, maecenas leo est, ornare at. $z=-1$ edf $z=1$ sed interdum felis dapibus sem. $x$ set $y$ ytruem. 
-Turpis $j$ amet accumsan enim $y$-lacina; 
-ref $k$-viverra nec porttitor $x$-lacina. 
-
-Vestibulum ac diam a odio tempus congue. Vivamus id enim nisi:
-
-\begin{eqnarray}
-\cos\bar{\phi}_k Q_{j,k+1,t} + Q_{j,k+1,x}+\frac{\sin^2\bar{\phi}_k}{T\cos\bar{\phi}_k} Q_{j,k+1} &=&\nonumber\\ 
--\cos\phi_k Q_{j,k,t} + Q_{j,k,x}-\frac{\sin^2\phi_k}{T\cos\phi_k} Q_{j,k}\label{edgek}
-\end{eqnarray}
-and
-\begin{eqnarray}
-\cos\bar{\phi}_j Q_{j+1,k,t} + Q_{j+1,k,y}+\frac{\sin^2\bar{\phi}_j}{T\cos\bar{\phi}_j} Q_{j+1,k}&=&\nonumber \\
--\cos\phi_j Q_{j,k,t} + Q_{j,k,y}-\frac{\sin^2\phi_j}{T\cos\phi_j} Q_{j,k}.\label{edgej}
-\end{eqnarray} 
-
-Nulla sed arcu arcu. Duis et ante gravida orci venenatis tincidunt. Fusce vitae lacinia metus. Pellentesque habitant morbi. $\mathbf{A}\underline{\xi}=\underline{\beta}$ Vim $\underline{\xi}$ enum nidi $3(P+2)^{2}$ lacina. Id feugain $\mathbf{A}$ nun quis; magno.
 
 %----------------------------------------------------------------------------------------
 %	RESULTS 
