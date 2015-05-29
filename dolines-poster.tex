@@ -142,7 +142,7 @@ Overlay of the identified dolines and histogram of effective radiouses can be se
 	\label{fig:vrtaceinpolmeri}
 \end{minipage}
 
-The size of identified dolines seams to be normally distributed with a maximum at $22m$.
+The diameter of identified dolines appears to be normally distributed with a maximum at $22m$.
 
 %------------------------------------------------
 
@@ -161,7 +161,7 @@ We then proceded by averaging all the identified dolines, to remove historical a
 To approximate the shape of the average doline we proposed an upside down Gaussian function (\ref{eq:Gaussian}).
 
 \begin{equation}
-	f(x,y) = - A \cdot e^{\frac{x^2 + y^2}{\sigma^2}} + C
+	f(r) = - A \cdot e^{\frac{r^2}{\sigma^2}} + C
 	\label{eq:Gaussian}
 \end{equation}
 
@@ -176,12 +176,19 @@ To approximate the shape of the average doline we proposed an upside down Gaussi
 	\item Kaksna je porazdelitev tako izmerjenih parametrov
 \end{itemize}
 
+To get a better idea about how similar the dolines of Menišija are to one another we now fit the proposed function \ref{eq:Gaussian} to identified dolines and plot the optimal fitting parameters on figure \ref{fig:vrtace-fit}. The fitting parameters are the depth $A$ and width $\sigma$. From the area of concavity we already calculated effective radious $r_{eff}$ according to equation \ref{eq:reff}.
+
 \begin{center}
 \includegraphics[width=\linewidth]{menisija-A-sigma-reff.pdf}
 \captionof{figure}{\color{Green} Figure caption}
+\label{fig:vrtace-fit}
 \end{center}
 
-Donec faucibus purus at tortor egestas eu fermentum dolor facilisis. Maecenas tempor dui eu neque fringilla rutrum. Mauris \emph{lobortis} nisl accumsan. Aenean vitae risus ante.
+The results suggest:
+\begin{itemize}
+	\item There is a linear correlation betweenm $\sigma$ and $r_{eff}$, indicating proposed function \ref{eq:Gaussian} is good enough for describing the area of dolines.
+	\item There is linear correlation between the depth $A$ and $r_eff$ as well as $A$ and $\sigma$, meaning the wider the doline is, the deeper it will be.
+\end{itemize}
 %
 \begin{wraptable}{l}{12cm} % Left or right alignment is specified in the first bracket, the width of the table is in the second
 \begin{tabular}{l l l}
@@ -195,12 +202,7 @@ Treatment 3 & 0.0009271 & 0.296 \\
 \end{tabular}
 \captionof{table}{\color{Green} Table caption}
 \end{wraptable}
-%
-Phasellus imperdiet, tortor vitae congue bibendum, felis enim sagittis lorem, et volutpat ante orci sagittis mi. Morbi rutrum laoreet semper. Morbi accumsan enim nec tortor consectetur non commodo nisi sollicitudin. Proin sollicitudin. Pellentesque eget orci eros. Fusce ultricies, tellus et pellentesque fringilla, ante massa luctus libero, quis tristique purus urna nec nibh.
 
-In hac habitasse platea dictumst. Etiam placerat, risus ac.
-
-Vivamus sed nibh ac metus tristique tristique a vitae ante. Sed lobortis mi ut arcu fringilla et adipiscing ligula rutrum. Aenean turpis velit, placerat eget tincidunt nec, ornare in nisl. In placerat.
 
 %----------------------------------------------------------------------------------------
 %	CONCLUSIONS
