@@ -171,11 +171,6 @@ To approximate the shape of the average doline we proposed an upside down Gaussi
 
 \section*{Results and comments}
 
-\begin{itemize}
-	\item Kako prilegamo funkcijo najdenim vrtacam
-	\item Kaksna je porazdelitev tako izmerjenih parametrov
-\end{itemize}
-
 To get a better idea about how similar the dolines of Menišija are to one another we now fit the proposed function \ref{eq:Gaussian} to identified dolines and plot the optimal fitting parameters on figure \ref{fig:vrtace-fit}. The fitting parameters are the depth $A$ and width $\sigma$. From the area of concavity we already calculated effective radious $r_{eff}$ according to equation \ref{eq:reff}.
 
 \begin{center}
@@ -189,35 +184,39 @@ The results suggest:
 	\item There is a linear correlation betweenm $\sigma$ and $r_{eff}$, indicating proposed function \ref{eq:Gaussian} is good enough for describing the area of dolines.
 	\item There is linear correlation between the depth $A$ and $r_eff$ as well as $A$ and $\sigma$, meaning the wider the doline is, the deeper it will be.
 \end{itemize}
-%
-\begin{wraptable}{l}{12cm} % Left or right alignment is specified in the first bracket, the width of the table is in the second
-\begin{tabular}{l l l}
-\toprule
-\textbf{Treatments} & \textbf{Response 1} & \textbf{Response 2}\\
-\midrule
-Treatment 1 & 0.0003262 & 0.562 \\
-Treatment 2 & 0.0015681 & 0.910 \\
-Treatment 3 & 0.0009271 & 0.296 \\
-\bottomrule
-\end{tabular}
-\captionof{table}{\color{Green} Table caption}
-\end{wraptable}
 
 
 %----------------------------------------------------------------------------------------
 %	CONCLUSIONS
 %----------------------------------------------------------------------------------------
 
-\color{SaddleBrown} % SaddleBrown color for the conclusions to make them stand out
-
 \section*{Proposed dynamic model}
 
-\begin{itemize}
-	\item Kaksni so casovni robni pogoji (geologija)
-	\item Kaksni so prostorski robni pogoji
-	\item Predlagane enacbe
-	\item Rezultati enacb
-\end{itemize}
+From geological background of Menišija we know it was a levelled karst polje up until 3 million years ago. Around that time a tectonic shift diverted the water that was levelling Menišija to Cerkniško polje. The dolines appeared in the time period from then to present. Judging by our findings about depth and size distributions, the dolines appear to have reached a stable shape and their depths and sizes stopped to change significantly.
+This fact motivated us to study partial differential equations that can start from a flat surface and produce doline like shapes, that are stable and do not grow or diminish in time.
+We propose two models for this dynamic.
+
+\textit{Logistic growth} - The deeper the doline the faster it grows until ..
+
+\begin{equation}
+	\frac{ \partial h(\mathbf{x},t) }{ \partial t} = D \frac{\partial^2}{\partial \mathbf{x}^2} h(\mathbf{x},t) + a \cdot h(\mathbf{x},t) \cdot (1 - \frac{h(\mathbf{x},t)}{K})
+\end{equation} 
+
+\textit{Kardar-Parisi-Zhang} - 
+\begin{equation}
+	\begin{aligned}
+		h(\mathbf{x},0) =  - e^{-\mathbf{x}^2}, \mathbf{x} \in D \\
+		h(\mathbf{x},t) = 0, \mathbf{x} \in \partial D \\
+		\mathbf{n} \cdot \boldsymbol \nabla h(\mathbf{x},t) = 0, \mathbf{x} \in \partial D,
+	\end{aligned}
+\end{equation}
+
+    Kardar-Parisi-Zhang-ova rast površja nam ne da determinističnega modela rasti posamezne vrtače
+    Možen je le izračun verjetnosti, da bomo pri danem površju dobili določeno končno površje
+    Zapišemo Kardar-Parisi-Zhangovo enačbo v obliko:
+    \begin{equation} \frac{ \partial h}{ \partial t} = D \nabla^2 h + F(h), \end{equation}
+    za člen $F(h)$ namesto linearne stohastične funkcije vstavimo različne fenomenološke modele rasti.
+
 
 \begin{minipage}[b]{0.5\textwidth}
 	\includegraphics[width=0.46\textwidth]{difuzija-logisticna-rast2.png}
@@ -225,11 +224,8 @@ Treatment 3 & 0.0009271 & 0.296 \\
 	\captionof{figure}{Some figure}
 \end{minipage}
 
-\begin{itemize}
-\item Pellentesque eget orci eros. Fusce ultricies, tellus et pellentesque fringilla, ante massa luctus libero, quis tristique purus urna nec nibh. Phasellus fermentum rutrum elementum. Nam quis justo lectus.
-\end{itemize}
-
-\color{DarkSlateGray} % Set the color back to DarkSlateGray for the rest of the content
+\color{SaddleBrown} % SaddleBrown color for the conclusions to make them stand out
+% \color{DarkSlateGray} % Set the color back to DarkSlateGray for the rest of the content
 
 %----------------------------------------------------------------------------------------
 %	REFERENCES
