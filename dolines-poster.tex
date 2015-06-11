@@ -50,12 +50,13 @@
 % The second is 25% wide and houses a logo for your university/organization or a photo of you
 % The widths of these boxes can be easily edited to accommodate your content as you see fit
 
-\begin{minipage}[b]{0.64\linewidth}
-\veryHuge \color{NavyBlue} \textbf{Dolines of Dinaric Karst} \color{Black}\\ % Title
-\Huge\textit{Case Study of Menišija, Slovenia}\\[1cm] % Subtitle
-\huge \textbf{Rok Mihevc} % Author(s)
+\begin{minipage}[b]{1\linewidth}
+\veryHuge \color{Black} \textbf{Dinaric Karst Dolines - A Case Study of Menišija, Slovenia} \color{Black}\\ % Title
+%%\Huge\textit{Case Study of Menišija, Slovenia}\\[1cm] % Subtitle
+\centering
+\Large \textbf{Rok Mihevc}, rok@mihevc.org, Gric 10, Logatec, Slovenia % Author(s)
 %\huge University of Ljubljna, Faculty of Mathematics and Physics\\[0.4cm] % University/organization
-\Large \texttt{rok@mihevc.org}
+%%\Large \texttt{rok@mihevc.org}
 \end{minipage}
 %
 % \vspace{1cm} % A bit of extra whitespace between the header and poster content
@@ -68,12 +69,12 @@
 %	ABSTRACT
 %----------------------------------------------------------------------------------------
 
-\color{Navy} % Navy color for the abstract
+%\color{Navy} % Navy color for the abstract
 
 \begin{abstract}
 
 Dolines are a frequent karst feature. Their shape, genesis and dynamics are conceptually described by various models. However, to the author’s knowledge there was no data about exact shape and size of a larger set of karst dolines that could be used for statistical analysis.
-We developed and used a numerical method to analyze $60 km^2$ of $1 m$ grid resolution lidar data of digital relief model of Menišija, a levelled karst surface, former polje near Postojna, Slovenia. We identified $8.700$ dolines (about $145$ dolines$/ m^2$). We then used numerical tools to calculate the average shape of the identified dolines and proposed a function to describe this shape.
+We developed and used a numerical method to analyze $60 km^2$ of $1 m$ grid resolution lidar data of digital relief model of Menišija, a levelled karst surface, former polje near Postojna, Slovenia. We identified $8.700$ dolines (about $145$ dolines$/ km^2$). We then used numerical tools to calculate the average shape of the identified dolines and proposed a function to describe this shape.
 
 Due to the geological history of Menišija and similarity of dolines in the area we propose that they were shaped by the same geomorphological processes, that ultimately lead to a common geomorphologically stable form of doline which is already reached in this area. 
 
@@ -85,29 +86,29 @@ Using this hypothesis we propose two possible dynamical models for dolines that 
 %	INTRODUCTION
 %----------------------------------------------------------------------------------------
 
-\color{SaddleBrown} % SaddleBrown color for the introduction
+%%\color{SaddleBrown} % SaddleBrown color for the introduction
 
-\section*{About dinaric karst dolines}
+\section*{About Dinaric dolines}
 
 \begin{wrapfigure}{r}{0.2\textwidth}
 \begin{center}
 	\includegraphics[width=0.2\textwidth]{menisija-relief.png}
-	\captionof{figure}{\color{Green} Figure caption}
+	\captionof{figure}{Lidar }
 	\label{fig:menisija}
 \end{center}
 \end{wrapfigure}
 
-Dolines of Dinaric karst are closed, bowl shaped depression with diameter ranging from about 10 to 100 meters. While each doline has its specific history, we can notice similarities in size and shape of dolines found in the same region. This leads us to believe, that no matter the history, they are ultimateley shaped by the same process. This conclusion gives motivation for the presented study.
+Dolines of Classical karst are closed, bowl shaped depression with diameter ranging from about 10 to 100 meters. While each doline has its specific history, we can notice similarities in size and shape of dolines found in the same region. This leads us to believe, that no matter the history, they are ultimately shaped by the same process. This conclusion gives motivation for the presented study.
 
-It is believed that predominant factor of genesis and growth of dolines is chemical dissolution of limestone. The dissolved limestone is washed into the aquifer trough fractures in the bedrock, while the surface is lowered and fractures widened. Lowering causes further concetration of surface water flow that further dissolves limestone. A feedback loop is established that drives the growth of the doline. However the growth is not unbound, as all dolines eventualy reach a stable, adult, form that we most commonly observe in nature. We assume this is caused by creation of efficient drainage system in the doline, that minimizes the dissolution of limestone, locking the dissolution of doline surface in step with adjecent flat surface.
+It is believed that predominant factor of genesis and growth of dolines is chemical dissolution of limestone (\cite{ford2007karst}). The dissolved limestone is washed into the aquifer trough fractures in the bedrock, while the surface is lowered and fractures widened. Deepening of the dolines may cause further concetration of surface water and also trigger other mechanisms (soil concentration, $CO_2$ production, etc. That further enhances dissolution of limestone. A feedback loop is established that drives the growth of the doline. However the growth is not unbound, as all dolines eventualy reach a stable, adult, form that we most commonly observe in nature. We assume this is caused by creation of efficient drainage system in the doline, that minimizes the dissolution of limestone, locking the dissolution of doline surface in step with adjacent flat surface.
 
-To study a statistically relavant set of dolines we used a high resolution lidar digital relied model provided by (to-do: ime instituta + CITAT).
+To study a statistically relevant set of dolines we used a high resolution lidar digital relief model provided by \cite{LAK}, \cite{Kobler20079}.
 
 %----------------------------------------------------------------------------------------
 %	OBJECTIVES
 %----------------------------------------------------------------------------------------
 
-\color{DarkSlateGray} % DarkSlateGray color for the rest of the content
+%%\color{DarkSlateGray} % DarkSlateGray color for the rest of the content
 
 \section*{Computer vision method}
 
@@ -116,20 +117,20 @@ We then segmented the area into concave zones and chose the most fitting candida
 
 	\begin{minipage}[b]{0.5\textwidth}
 	\centering
-      \begin{minipage}{0.45\linewidth}
+      \begin{minipage}{0.46\linewidth}
       \centering
           \begin{figure}[H]
               \includegraphics[width=\textwidth]{concavity-samples.pdf}
-              \caption{dsadas}
+              \caption{Concavity index of relief given various ring sizes.}
               \label{fig:concavity-samples}
           \end{figure}
       \end{minipage}
       \hspace{0.05\linewidth}
-      \begin{minipage}{0.45\linewidth}
+      \begin{minipage}{0.46\linewidth}
       \centering
           \begin{figure}[H]
               \includegraphics[width=\textwidth]{concavity-segmentation-samples.pdf}
-              \caption{saldk}
+              \caption{Segmentation of relief based on concavity index.}
               \label{fig:concavity-segmentation}
           \end{figure}
       \end{minipage}
@@ -220,7 +221,7 @@ The results suggest:
 
 \section*{Proposed dynamic model}
 
-From geological background of Menišija we know it was a levelled karst polje up until 3 million years ago. Around that time a tectonic shift diverted the water that was levelling Menišija to the nearby Cerkniško polje. The dolines appeared in the time period from then to present. Judging by our findings about depth and size distributions, the dolines appear to have reached a stable shape and their depths and sizes stopped to develop.
+Menišija is levelled surface, part of former much larger karst polje. Polje was vertically fragmented to smaller parts by tectonic movements. They lowered level of karst water and diverted the surface inflow that was flooding and levelling Menišija to the nearby Cerkniško polje. The dolines appeared in the time period from then to present. Judging by our findings about depth and size distributions, the dolines appear to have reached a stable shape and their depths and sizes stopped to develop.
 This fact motivated us to study partial differential equations that take initial conditions of a flat surface and ultimately produce doline like shapes, that are stable and do not grow or diminish in time. We propose two models for this dynamic.
 
 \vspace{5mm}
@@ -264,7 +265,7 @@ Kardar-Parisi-Zhang equation gives us a non-deterministic dynamic model for grow
       \end{minipage}
 	\end{minipage}
 
-\color{SaddleBrown} % SaddleBrown color for the conclusions to make them stand out
+%%\color{SaddleBrown} % SaddleBrown color for the conclusions to make them stand out
 % \color{DarkSlateGray} % Set the color back to DarkSlateGray for the rest of the content
 
 %----------------------------------------------------------------------------------------
