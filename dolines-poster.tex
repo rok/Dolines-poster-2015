@@ -114,11 +114,26 @@ To study a statistically relavant set of dolines we used a high resolution lidar
 To isolate dolines from the digital relief model we calculated concavity of each point in the relief by assigning the point a value calculated by subtracting the points height from the average height of points on a concentric ring around it. By varying the rings inner and outer radious we highlighted concave shapes of various sizes.
 We then segmented the area into concave zones and chose the most fitting candidates for dolines.
 
-\begin{minipage}[b]{0.5\textwidth}
-	\includegraphics[width=0.5\textwidth]{concavity-samples.pdf}
-	\includegraphics[width=0.5\textwidth]{concavity-segmentation-samples.pdf}
-	\captionof{figure}{Some figure}
-\end{minipage}
+	\begin{minipage}[b]{0.5\textwidth}
+	\centering
+      \begin{minipage}{0.45\linewidth}
+      \centering
+          \begin{figure}[H]
+              \includegraphics[width=\textwidth]{concavity-samples.pdf}
+              \caption{dsadas}
+              \label{fig:concavity-samples}
+          \end{figure}
+      \end{minipage}
+      \hspace{0.05\linewidth}
+      \begin{minipage}{0.45\linewidth}
+      \centering
+          \begin{figure}[H]
+              \includegraphics[width=\textwidth]{concavity-segmentation-samples.pdf}
+              \caption{saldk}
+              \label{fig:concavity-segmentation}
+          \end{figure}
+      \end{minipage}
+	\end{minipage}
 
 %----------------------------------------------------------------------------------------
 %	MATERIALS AND METHODS
@@ -135,13 +150,26 @@ We then calculated the effective radiouses of found dolines, by counting the pix
 
 Overlay of the identified dolines and histogram of effective radiouses can be seen on Figure \ref{fig:vrtaceinpolmeri}.
 
-\begin{minipage}[b]{0.5\textwidth}
-	\includegraphics[width=0.22\textwidth]{menisija-vrtace}
-	\includegraphics[width=0.8\textwidth]{menisija-polmeri-hist}
-	\captionof{figure}{Some figure}
-	\label{fig:vrtaceinpolmeri}
-\end{minipage}
+	\begin{minipage}[b]{0.5\textwidth}
+	\centering
+      \begin{minipage}{0.18\linewidth}
+          \begin{figure}[H]
+              \includegraphics[width=\textwidth]{menisija-vrtace}
+              \caption{Part of 8600 dolines found in the Menišija and two collapse dolines.}
+              \label{fig:vrtaceinpolmeri}
+          \end{figure}
+      \end{minipage}
+      \hspace{0.05\linewidth}
+      \begin{minipage}{0.75\linewidth}
+          \begin{figure}[H]
+              \includegraphics[width=\textwidth]{menisija-polmeri-hist}
+              \caption{Final result of numeric simulation of Kardar-Parisi-Zhang dynamics, starting from a flat surface after $10^5$ steps.}
+              \label{fig:vrtave-histogram}
+          \end{figure}
+      \end{minipage}
+	\end{minipage}
 
+\vspace{5mm}
 The diameter of identified dolines appears to be normally distributed with a maximum at $22m$.
 
 %------------------------------------------------
@@ -192,37 +220,49 @@ The results suggest:
 
 \section*{Proposed dynamic model}
 
-From geological background of Menišija we know it was a levelled karst polje up until 3 million years ago. Around that time a tectonic shift diverted the water that was levelling Menišija to Cerkniško polje. The dolines appeared in the time period from then to present. Judging by our findings about depth and size distributions, the dolines appear to have reached a stable shape and their depths and sizes stopped to change significantly.
-This fact motivated us to study partial differential equations that can start from a flat surface and produce doline like shapes, that are stable and do not grow or diminish in time.
-We propose two models for this dynamic.
+From geological background of Menišija we know it was a levelled karst polje up until 3 million years ago. Around that time a tectonic shift diverted the water that was levelling Menišija to the nearby Cerkniško polje. The dolines appeared in the time period from then to present. Judging by our findings about depth and size distributions, the dolines appear to have reached a stable shape and their depths and sizes stopped to develop.
+This fact motivated us to study partial differential equations that take initial conditions of a flat surface and ultimately produce doline like shapes, that are stable and do not grow or diminish in time. We propose two models for this dynamic.
 
-\textit{Logistic growth} - The deeper the doline the faster it grows until ..
-
+\vspace{5mm}
+\textit{Logistic growth}
 \begin{equation}
 	\frac{ \partial h(\mathbf{x},t) }{ \partial t} = D \frac{\partial^2}{\partial \mathbf{x}^2} h(\mathbf{x},t) + a \cdot h(\mathbf{x},t) \cdot (1 - \frac{h(\mathbf{x},t)}{K})
-\end{equation} 
-
-\textit{Kardar-Parisi-Zhang} - 
+	\label{eq:logistic-growth}
+\end{equation}
+Logistic growth equation produces a dynamics, where doline grows slowly at first, but as it's size increases so does it's growth rate. But, as the doline approaches the carrying capacity (see the second term in (\ref{eq:logistic-growth})), the growth diminishes and stops. Carrying capacity is defined by the variables of the environment.
+Given border conditions:
 \begin{equation}
 	\begin{aligned}
-		h(\mathbf{x},0) =  - e^{-\mathbf{x}^2}, \mathbf{x} \in D \\
-		h(\mathbf{x},t) = 0, \mathbf{x} \in \partial D \\
+		h(\mathbf{x},0) =  - e^{-\mathbf{x}^2}, \mathbf{x} \in D, \\
+		h(\mathbf{x},t) = 0, \mathbf{x} \in \partial D, \\
 		\mathbf{n} \cdot \boldsymbol \nabla h(\mathbf{x},t) = 0, \mathbf{x} \in \partial D,
 	\end{aligned}
 \end{equation}
+we get dynamics as seen on Figure \ref{fig:logistic-growth}.
 
-    Kardar-Parisi-Zhang-ova rast površja nam ne da determinističnega modela rasti posamezne vrtače
-    Možen je le izračun verjetnosti, da bomo pri danem površju dobili določeno končno površje
-    Zapišemo Kardar-Parisi-Zhangovo enačbo v obliko:
-    \begin{equation} \frac{ \partial h}{ \partial t} = D \nabla^2 h + F(h), \end{equation}
-    za člen $F(h)$ namesto linearne stohastične funkcije vstavimo različne fenomenološke modele rasti.
+\vspace{5mm}
+\textit{Kardar-Parisi-Zhang}
+\begin{equation} \frac{ \partial h(\mathbf{x},t)}{ \partial t} = D \nabla^2 h(\mathbf{x},t) + F(h(\mathbf{x},t)) \label{eq:kpz} \end{equation}
+Kardar-Parisi-Zhang equation gives us a non-deterministic dynamic model for growth of dolines. Starting from a flat surface this model will produce a Figure \ref{fig:kpz} like surface. The size and depth of dolines in this model depend on the diffusion constant $D$ and stochastic term $F(h(\mathbf{x},t))$ as seen in Equation \ref{eq:kpz}.
 
-
-\begin{minipage}[b]{0.5\textwidth}
-	\includegraphics[width=0.46\textwidth]{difuzija-logisticna-rast2.png}
-	\includegraphics[width=0.54\textwidth]{KPZ-numericno.pdf}
-	\captionof{figure}{Some figure}
-\end{minipage}
+	\begin{minipage}[b]{0.5\textwidth}
+	\centering
+      \begin{minipage}{0.43\linewidth}
+          \begin{figure}[H]
+              \includegraphics[width=\textwidth]{difuzija-logisticna-rast2.png}
+              \caption{Time evolution of logistic diffusion growth given by Equation \ref{eq:logistic-growth}. We set $D = 1$, $a = 50$, $K = -10$.}
+              \label{fig:logistic-growth}
+          \end{figure}
+      \end{minipage}
+      \hspace{0.05\linewidth}
+      \begin{minipage}{0.5\linewidth}
+          \begin{figure}[H]
+              \includegraphics[width=\textwidth]{KPZ-numericno.pdf}
+              \caption{Final result of numeric simulation of Kardar-Parisi-Zhang dynamics, starting from a flat surface after $10^5$ steps.}
+              \label{fig:kpz}
+          \end{figure}
+      \end{minipage}
+	\end{minipage}
 
 \color{SaddleBrown} % SaddleBrown color for the conclusions to make them stand out
 % \color{DarkSlateGray} % Set the color back to DarkSlateGray for the rest of the content
