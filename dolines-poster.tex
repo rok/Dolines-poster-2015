@@ -38,6 +38,7 @@
 %\usepackage[slovene,english]{babel}
 \usepackage{amsfonts, amsmath, amsthm, amssymb} % For math fonts, symbols and environments
 \usepackage{wrapfig} % Allows wrapping text around tables and figures
+\usepackage{lipsum}
 
 \begin{document}
 
@@ -54,12 +55,12 @@
 \veryHuge \color{Black} \textbf{Dinaric Karst Dolines - A Case Study of Menišija, Slovenia} \color{Black}\\ % Title
 %%\Huge\textit{Case Study of Menišija, Slovenia}\\[1cm] % Subtitle
 \centering
-\Large \textbf{Rok Mihevc}, rok@mihevc.org, Gric 10, Logatec, Slovenia % Author(s)
+\Large \textbf{Rok Mihevc}, rok@mihevc.org, Grič 10, Logatec, Slovenia % Author(s)
 %\huge University of Ljubljna, Faculty of Mathematics and Physics\\[0.4cm] % University/organization
 %%\Large \texttt{rok@mihevc.org}
 \end{minipage}
 %
-% \vspace{1cm} % A bit of extra whitespace between the header and poster content
+\vspace{1cm} % A bit of extra whitespace between the header and poster content
 
 %----------------------------------------------------------------------------------------
 
@@ -79,7 +80,6 @@ We developed and used a numerical method to analyze $60 km^2$ of $1 m$ grid reso
 Due to the geological history of Menišija and similarity of dolines in the area we propose that they were shaped by the same geomorphological processes, that ultimately lead to a common geomorphologically stable form of doline which is already reached in this area. 
 
 Using this hypothesis we propose two possible dynamical models for dolines that would lead to the shape of relief that we observe in Menišija today.
-
 \end{abstract}
 
 %----------------------------------------------------------------------------------------
@@ -89,20 +89,18 @@ Using this hypothesis we propose two possible dynamical models for dolines that 
 %%\color{SaddleBrown} % SaddleBrown color for the introduction
 
 \section*{About Dinaric dolines}
-
 \begin{wrapfigure}{r}{0.2\textwidth}
 \begin{center}
 	\includegraphics[width=0.2\textwidth]{menisija-relief.png}
-	\captionof{figure}{Lidar }
+	\captionof{figure}{Shaded digital model of Menišija.}
 	\label{fig:menisija}
 \end{center}
 \end{wrapfigure}
-
 Dolines of Classical karst are closed, bowl shaped depression with diameter ranging from about 10 to 100 meters. While each doline has its specific history, we can notice similarities in size and shape of dolines found in the same region. This leads us to believe, that no matter the history, they are ultimately shaped by the same process. This conclusion gives motivation for the presented study.
 
-It is believed that predominant factor of genesis and growth of dolines is chemical dissolution of limestone (\cite{ford2007karst}). The dissolved limestone is washed into the aquifer trough fractures in the bedrock, while the surface is lowered and fractures widened. Deepening of the dolines may cause further concetration of surface water and also trigger other mechanisms (soil concentration, $CO_2$ production, etc. That further enhances dissolution of limestone. A feedback loop is established that drives the growth of the doline. However the growth is not unbound, as all dolines eventualy reach a stable, adult, form that we most commonly observe in nature. We assume this is caused by creation of efficient drainage system in the doline, that minimizes the dissolution of limestone, locking the dissolution of doline surface in step with adjacent flat surface.
+It is believed that predominant factor of genesis and growth of dolines is chemical dissolution of limestone (\cite{ford2007karst}, \cite{Zambo1997}). The dissolved limestone is washed into the aquifer trough fractures in the bedrock, while the surface is lowered and fractures widened. Deepening of the dolines may cause further concetration of surface water and also trigger other mechanisms (soil concentration, $CO_2$ production, etc.), that further enhances dissolution of limestone. A feedback loop is established that drives the growth of the doline. However the growth is not unbound, as all dolines eventualy reach a stable, adult, form that we most commonly observe in nature. We assume this is caused by creation of efficient drainage system in the doline, that minimizes the dissolution of limestone, locking the dissolution of doline surface in step with adjacent flat surface.
 
-To study a statistically relevant set of dolines we used a high resolution lidar digital relief model provided by \cite{LAK}, \cite{Kobler20079}.
+To study a statistically relevant set of dolines we used a high resolution digital relief model provided by Slovenian Forestry Institute \cite{LAK}, \cite{Kobler20079}.
 
 %----------------------------------------------------------------------------------------
 %	OBJECTIVES
@@ -116,21 +114,17 @@ To isolate dolines from the digital relief model we calculated concavity of each
 We then segmented the area into concave zones and chose the most fitting candidates for dolines.
 
 	\begin{minipage}[b]{0.5\textwidth}
-	\centering
-      \begin{minipage}{0.46\linewidth}
-      \centering
+      \begin{minipage}{0.45\linewidth}
           \begin{figure}[H]
               \includegraphics[width=\textwidth]{concavity-samples.pdf}
-              \caption{Concavity index of relief given various ring sizes.}
+              \caption{Concavity index of relief for various ring sizes.}
               \label{fig:concavity-samples}
           \end{figure}
       \end{minipage}
-      \hspace{0.05\linewidth}
-      \begin{minipage}{0.46\linewidth}
-      \centering
+      \begin{minipage}{0.45\linewidth}
           \begin{figure}[H]
               \includegraphics[width=\textwidth]{concavity-segmentation-samples.pdf}
-              \caption{Segmentation of relief based on concavity index.}
+              \caption{Segmentation based on concavity index.}
               \label{fig:concavity-segmentation}
           \end{figure}
       \end{minipage}
@@ -140,7 +134,7 @@ We then segmented the area into concave zones and chose the most fitting candida
 %	MATERIALS AND METHODS
 %----------------------------------------------------------------------------------------
 
-\section*{Results}
+\section*{Results and Analysis}
 
 We then calculated the effective radiouses of found dolines, by counting the pixels of each doline and calculating the radious of a circle with equal surface (see Equation \ref{eq:reff}).
 
@@ -152,19 +146,17 @@ We then calculated the effective radiouses of found dolines, by counting the pix
 Overlay of the identified dolines and histogram of effective radiouses can be seen on Figure \ref{fig:vrtaceinpolmeri}.
 
 	\begin{minipage}[b]{0.5\textwidth}
-	\centering
-      \begin{minipage}{0.18\linewidth}
+      \begin{minipage}{0.2\linewidth}
           \begin{figure}[H]
               \includegraphics[width=\textwidth]{menisija-vrtace}
               \caption{Part of 8600 dolines found in the Menišija and two collapse dolines.}
               \label{fig:vrtaceinpolmeri}
           \end{figure}
       \end{minipage}
-      \hspace{0.05\linewidth}
-      \begin{minipage}{0.75\linewidth}
+      \begin{minipage}{0.83\linewidth}
           \begin{figure}[H]
               \includegraphics[width=\textwidth]{menisija-polmeri-hist}
-              \caption{Final result of numeric simulation of Kardar-Parisi-Zhang dynamics, starting from a flat surface after $10^5$ steps.}
+              \caption{Histogram of effective radiouses of concave objects in Menišija. \\Average effective radious is $\overline{r_{eff}} = 26m$.}
               \label{fig:vrtave-histogram}
           \end{figure}
       \end{minipage}
@@ -173,47 +165,39 @@ Overlay of the identified dolines and histogram of effective radiouses can be se
 \vspace{5mm}
 The diameter of identified dolines appears to be normally distributed with a maximum at $22m$.
 
-%------------------------------------------------
-
-\subsection*{Average doline}
-
 We then proceded by averaging all the identified dolines, to remove historical and directional bias. The result can be seen in Figure \ref{fig:vrtaca}.
 
-\begin{wrapfigure}{r}{0.2\textwidth}
-\begin{center}
-	\includegraphics[width=0.2\textwidth]{menisija-vrtaca.png}
-	\captionof{figure}{\color{Green} Figure caption}
-	\label{fig:vrtaca}
-\end{center}
-\end{wrapfigure}
-
-To approximate the shape of the average doline we proposed an upside down Gaussian function (\ref{eq:Gaussian}).
+To approximate the shape of the average doline we proposed an upside down Gaussian function:
 
 \begin{equation}
-	f(r) = - A \cdot e^{\frac{r^2}{\sigma^2}} + C
+	f(r) = - A \cdot e^{\frac{r^2}{\sigma^2}} + C.
 	\label{eq:Gaussian}
 \end{equation}
 
-%----------------------------------------------------------------------------------------
-%	RESULTS 
-%----------------------------------------------------------------------------------------
+\vfill
+\columnbreak
+\begin{wrapfigure}{R}{0.18\textwidth}
+  \includegraphics[width=\linewidth]{menisija-vrtaca.png}
+  \captionof{figure}{Average doline of Menišija. Averaged of $8600$ dolines found.}
+  \label{fig:vrtaca}
+\end{wrapfigure}
 
-\section*{Results and comments}
+To get a better idea about how similar the dolines of Menišija are to one another we now fit the proposed Function \ref{eq:Gaussian} to identified dolines and plot the optimal fitting parameters on Figure \ref{fig:vrtace-fit}. The fitting parameters are the depth $A$ and width $\sigma$. From the area of concavity we already calculated effective radious $r_{eff}$ according to Equation \ref{eq:reff}.
 
-To get a better idea about how similar the dolines of Menišija are to one another we now fit the proposed function \ref{eq:Gaussian} to identified dolines and plot the optimal fitting parameters on figure \ref{fig:vrtace-fit}. The fitting parameters are the depth $A$ and width $\sigma$. From the area of concavity we already calculated effective radious $r_{eff}$ according to equation \ref{eq:reff}.
-
-\begin{center}
-\includegraphics[width=\linewidth]{menisija-A-sigma-reff.pdf}
-\captionof{figure}{\color{Green} Figure caption}
-\label{fig:vrtace-fit}
-\end{center}
 
 The results suggest:
 \begin{itemize}
-	\item There is a linear correlation betweenm $\sigma$ and $r_{eff}$, indicating proposed function \ref{eq:Gaussian} is good enough for describing the area of dolines.
+	\item There is a linear correlation betweenm $\sigma$ and $r_{eff}$, indicating proposed Function \ref{eq:Gaussian} is good enough for describing the area of dolines.
 	\item There is linear correlation between the depth $A$ and $r_eff$ as well as $A$ and $\sigma$, meaning the wider the doline is, the deeper it will be.
 \end{itemize}
 
+\vspace{0.5cm}
+  \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\linewidth]{menisija-A-sigma-reff.pdf}
+    \caption{We pick dolines of typical sizes ($5m < r_{eff} < 60m$) and plot dependencies $\sigma(r_{eff})$, $A(r_{eff})$, $A(\sigma)$. We then fit linear functions onto them to show correlations.}
+    \label{fig:vrtace-fit}
+  \end{figure}
 
 %----------------------------------------------------------------------------------------
 %	CONCLUSIONS
